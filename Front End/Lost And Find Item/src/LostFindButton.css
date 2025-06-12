@@ -1,0 +1,53 @@
+.lost-find-button{
+    position: relative;
+    padding: 20px;
+    margin: 20px;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.lost-button{
+    position: relative;
+    margin: 20px;
+    margin-left: 50px;
+    width: 30%;
+    height: 80px;
+    color: black;
+    font-size: 1.5em;
+    background: rgba(143, 12, 12, 0.76); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.lost-button:hover {
+    background: rgb(156, 34, 34);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    cursor: pointer;
+}
+
+.find-button{
+    position: relative;
+    margin: 20px;
+    margin-right: 50px;
+    width: 30%;
+    height: 80px;
+    color: black;
+    font-size: 1.5em;
+    background: rgba(103, 167, 178, 0.76);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.find-button:hover {
+    background: rgb(79, 163, 178);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    cursor: pointer;
+}

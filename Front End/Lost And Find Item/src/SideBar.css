@@ -1,0 +1,17 @@
+.border-end {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s;
+    width: 300px; /* default folded width */
+}
+
+.head-name{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-top: 20px;
+}
