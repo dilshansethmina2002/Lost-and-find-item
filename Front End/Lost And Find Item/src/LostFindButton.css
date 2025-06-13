@@ -1,12 +1,18 @@
+.focus-container{
+    margin:30px;
+    top:50px;
+}
+
+
 .lost-find-button{
     position: relative;
     padding: 20px;
-    margin: 20px;
-
+    margin: 30px;
     align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    /* bottom:100px; */
 }
 .lost-button{
     position: relative;
