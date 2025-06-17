@@ -11,7 +11,7 @@ function AddLostItem() {
 
     return(
         <>
-            <Button className='lost-button' onClick={()=>setOpened(true)} >Lost</Button>
+            <Button className='lost-button' onClick={()=>setOpened(true)} >LOST</Button>
 
             {opnedPopup && ( // If setOpened is true, show the popup
             <div className="popup-overlay">

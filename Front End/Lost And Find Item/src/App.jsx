@@ -1,5 +1,4 @@
 import ResentItems from './ResentItems.jsx';
-import LostFindButton from './LostFindButton.jsx';
 import SideBar from './SideBar.jsx';
 import AddLostItem from './AddLostItem.jsx';
 import AddFoundItem from './AddFoundItem.jsx';
@@ -16,12 +15,15 @@ function App() {
     <>
 
       <LostFoundText/>
+      
       <div className='button-container'>
-        <AddLostItem></AddLostItem>
-        <AddFoundItem></AddFoundItem>
+        <AddLostItem></AddLostItem> {/* Add Button */}
+        <AddFoundItem></AddFoundItem> {/* Lost Button */}
       </div>
-      <SideBar></SideBar>
-      <ResentItems></ResentItems>
+      
+      <SideBar></SideBar>  {/* Side nav bar */}
+      <ResentItems></ResentItems> {/* Recent Items */}
+      
       
 
 
