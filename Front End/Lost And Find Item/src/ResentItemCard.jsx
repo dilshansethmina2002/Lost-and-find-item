@@ -2,13 +2,13 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './ResentItemCard.css';
 
-function ResentItemCard() {
+function ResentItemCard(props) {
 
-  const itemName = "Smart Phone"; // Example item name
-  const itemDescription = "Some quick example text to build on the card title and make up the bulk of the card's content."; // Example description
-  const itemLocation = "New York, USA"; // Example location
-  const itemDate = "2023-10-01"; // Example date
-  const itemImage = "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80"; // Example image URL
+  const itemName = props.itemName; // Example item name
+  const itemDescription = props.itemDescription; // Example description
+  const itemLocation = props.itemLocation; // Example location
+  const itemDate = props.itemDate; // Example date
+  const itemImage = props.itemImage; // Example image URL
   
   return (
     <Card className='card-item'>
