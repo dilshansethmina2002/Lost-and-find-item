@@ -1,6 +1,8 @@
 import React from 'react'
 import '@coreui/coreui/dist/css/coreui.min.css'
 import './SideBar.css'
+import { Link } from "react-router-dom";
+
 import {
   CBadge,
   CSidebar,
@@ -37,13 +39,13 @@ function SideBar() {
             <span className="nav-icon">
               <span className="nav-icon-bullet"></span>
             </span>{' '}
-            Lost Items
+            <Link to="/mylostitem" style={{ textDecoration: 'none', color: 'inherit' }}>My Lost Item</Link>
           </CNavItem>
           <CNavItem href="#">
             <span className="nav-icon">
               <span className="nav-icon-bullet"></span>
             </span>{' '}
-            Found Items
+            <Link to="/myfounditem" style={{ textDecoration: 'none', color: 'inherit' }}>My Found Item</Link>
           </CNavItem>
         </CNavGroup>
 

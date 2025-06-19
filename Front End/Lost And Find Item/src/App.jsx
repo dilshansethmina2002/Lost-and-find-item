@@ -1,11 +1,11 @@
-import ResentItems from './ResentItems.jsx';
-import SideBar from './SideBar.jsx';
-import AddLostItem from './AddLostItem.jsx';
-import AddFoundItem from './AddFoundItem.jsx';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import LostFoundText from './LostFoundText';
+import {Routes,Route} from "react-router-dom";
+import MyFoundItem from './MyFoundItem.jsx';
+import MyLostItem from './MyLostItem.jsx';
+import Dashbord from './Dashbord.jsx';
+import { Link } from "react-router-dom";
 
 
 
@@ -13,20 +13,17 @@ function App() {
   
   return (
     <>
-
-      <LostFoundText/>
-      
-      <div className='button-container'>
-        <AddLostItem></AddLostItem> {/* Add Button */}
-        <AddFoundItem></AddFoundItem> {/* Lost Button */}
+      <div>
+        <nav>
+          <Link to="/about">About</Link>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Dashbord />} />
+          <Route path="/dashbord" element={<Dashbord />} />
+          <Route path="/mylostitem" element={<MyLostItem />} />
+          <Route path="/myfounditem" element={<MyFoundItem />} />
+        </Routes>
       </div>
-      
-      <SideBar></SideBar>  {/* Side nav bar */}
-      <ResentItems></ResentItems> {/* Recent Items */}
-      
-      
-
-
     </>
   )
 }

@@ -2,6 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './ResentItemCard.css';
 
+
 function ResentItemCard(props) {
 
   const itemName = props.itemName; // Example item name
@@ -12,6 +13,8 @@ function ResentItemCard(props) {
   
   return (
     <Card className='card-item'>
+       
+        
         <Card.Img variant="" src={itemImage} />
         <Card.Body>
             <Card.Title>{itemName}</Card.Title>
