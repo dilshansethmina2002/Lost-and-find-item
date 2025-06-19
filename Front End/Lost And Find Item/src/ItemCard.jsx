@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import './ResentItemCard.css';
+import './ItemCard.css';
 
 
 function ResentItemCard(props) {

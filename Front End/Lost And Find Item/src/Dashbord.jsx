@@ -1,4 +1,4 @@
-import ResentItems from './ResentItems.jsx';
+import ResentItems from './ResentItem.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from './SideBar.jsx';
 import AddLostItem from './AddLostItem.jsx';

@@ -1,4 +1,4 @@
-import ResentItemCard from './ResentItemCard.jsx';
+import ItemCard from './ItemCard.jsx';
 import './ResentItem.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -14,13 +14,13 @@ function ResentItems() {
                     <Container>
                         <Row>
                             <Col xs={12} md={6} lg={4}>
-                                <ResentItemCard />
+                                <ItemCard />
                             </Col>
                             <Col xs={12} md={6} lg={4}>
-                                <ResentItemCard />
+                                <ItemCard />
                             </Col>
                             <Col xs={12} md={6} lg={4}>
-                                <ResentItemCard />
+                                <ItemCard />
                             </Col>
                         </Row>
                     </Container>

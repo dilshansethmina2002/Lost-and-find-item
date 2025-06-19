@@ -25,7 +25,9 @@ function SideBar() {
       </CSidebarHeader>
       <CSidebarNav>
         <CNavItem href="#">
-          <CIcon customClassName="nav-icon" icon={cilSpeedometer} /> Dashbord
+          <CIcon customClassName="nav-icon" icon={cilSpeedometer} />
+          <Link to="/dashbord" style={{ textDecoration: 'none', color: 'inherit' }}>Dashbord</Link>
+
         </CNavItem>
         
         <CNavGroup
