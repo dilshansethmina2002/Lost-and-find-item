@@ -8,8 +8,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 6.9271,
+  lng: 79.8612
 };
 
 function LocationPicker({ onLocationSelect }) {

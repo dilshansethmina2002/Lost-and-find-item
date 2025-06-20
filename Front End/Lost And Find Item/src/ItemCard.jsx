@@ -1,34 +1,95 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './ItemCard.css';
+import React from 'react';
+import { IoMdClose } from 'react-icons/io';
 
 
-function ResentItemCard(props) {
+function ResentItemCard(item) {
 
-  const itemName = props.itemName; // Example item name
-  const itemDescription = props.itemDescription; // Example description
-  const itemLocation = props.itemLocation; // Example location
-  const itemDate = props.itemDate; // Example date
-  const itemImage = props.itemImage; // Example image URL
-  
+  // console.log(item.pro);
+  const lostItem = item.pro; // Assuming 'item' is the prop passed to this component
+
+  const itemName = lostItem.name; // Example item name
+  const itemDescription = lostItem.description; // Example description
+  const itemLocation = lostItem.location; // Example location
+  const itemDate = lostItem.date ? new Date(lostItem.date).toLocaleDateString() : "";
+  const itemTime = lostItem.date ? new Date(lostItem.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ""; // Example date
+  const itemImage = lostItem.image; // Example image URL
+
+  const [showMap, setShowMap] = React.useState(false);
+
+
   return (
+    <>
     <Card className='card-item'>
-       
-        
-        <Card.Img variant="" src={itemImage} />
+       <Card.Img variant="" src={itemImage[0]} />
         <Card.Body>
-            <Card.Title>{itemName}</Card.Title>
-            <Card.Text>
-                {itemDescription}
-            </Card.Text>
-            <Card.Text>
-                <small className="text-muted">Location: {itemLocation}</small><br />
-                <small className="text-muted">Date: {itemDate}</small>  
-                
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+          <Card.Title>{itemName}</Card.Title>
+          <Card.Text>
+            {itemDescription}
+          </Card.Text>
+          <Card.Text>
+            <small className="text-muted">Date: {itemDate}</small> <br />
+            <small className="text-muted">Time: {itemTime}</small>
+          </Card.Text>
+          <Button
+            variant="primary"
+            onClick={() => {
+              if (itemLocation && itemLocation.lat && itemLocation.lng) {
+                setShowMap(true);
+              } else {
+                toast.error("Location not available");
+              }
+            }}
+          >
+            Location
+          </Button>
         </Card.Body>
     </Card>
+    {showMap && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100vw",
+            height: "100vh",
+            background: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 9999,
+          }}
+          onClick={() => setShowMap(false)}
+        >
+          <div
+            style={{
+              background: "#fff",
+              padding: 0,
+              borderRadius: 8,
+              boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
+              position: "relative",
+              width: "90vw",
+              maxWidth: 600,
+              height: "60vh",
+              overflow: "hidden",
+            }}
+            onClick={e => e.stopPropagation()}>
+              <IoMdClose size={40} onClick={() => setShowMap(false)} style={{ position: "absolute", top: 10, right: 10, zIndex: 2,cursor: "pointer" }} />
+            <iframe
+              title="Google Map"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              style={{ border: 0 }}
+              src={`https://www.google.com/maps?q=${itemLocation.lat},${itemLocation.lng}&z=15&output=embed`}
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

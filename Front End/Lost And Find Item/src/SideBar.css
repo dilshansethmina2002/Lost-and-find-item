@@ -15,3 +15,24 @@
     text-align: center;
     margin-top: 20px;
 }
+/* 
+.custom-nav-link {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  height: 10px !important;
+} */
+
+.custom-nav-link {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  margin-bottom: 0 !important;
+}
+
+.sidebar-nav .nav-link {
+  margin-bottom: 4px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  flex: none !important;
+}

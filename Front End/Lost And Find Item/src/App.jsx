@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Toaster } from 'react-hot-toast';
 import './App.css';
 import {Routes,Route} from "react-router-dom";
 import MyFoundItem from './MyFoundItem.jsx';
@@ -13,6 +14,7 @@ function App() {
   
   return (
     <>
+      <Toaster position='top-right'/>
       <div>
         <nav>
           <Link to="/about">About</Link>

@@ -10,6 +10,7 @@ import {
   CSidebarHeader,
   CSidebarNav,
   CNavGroup,
+  CNavLink,
   CNavItem,
   CNavTitle,
 } from '@coreui/react'
@@ -24,11 +25,12 @@ function SideBar() {
         <CIcon className='nav-icon' icon={cilBlur}></CIcon>
       </CSidebarHeader>
       <CSidebarNav>
-        <CNavItem href="#">
+        <CNavLink as={Link} to="/dashbord" className="custom-nav-link" style={{ textDecoration: 'none', color: 'inherit' }}>
           <CIcon customClassName="nav-icon" icon={cilSpeedometer} />
-          <Link to="/dashbord" style={{ textDecoration: 'none', color: 'inherit' }}>Dashbord</Link>
+          Dashbord
+          {/* <Link to="/dashbord" style={{ textDecoration: 'none', color: 'inherit' }}>Dashbord</Link> */}
 
-        </CNavItem>
+        </CNavLink>
         
         <CNavGroup
           toggler={
@@ -37,31 +39,33 @@ function SideBar() {
             </>
           }
         >
-          <CNavItem href="#">
+          <CNavLink as={Link} to="/mylostitem" style={{ textDecoration: 'none', color: 'inherit' }}>
             <span className="nav-icon">
               <span className="nav-icon-bullet"></span>
             </span>{' '}
-            <Link to="/mylostitem" style={{ textDecoration: 'none', color: 'inherit' }}>My Lost Item</Link>
-          </CNavItem>
-          <CNavItem href="#">
+            My Lost Item
+            {/* <Link to="/mylostitem" style={{ textDecoration: 'none', color: 'inherit' }}>My Lost Item</Link> */}
+          </CNavLink>
+          <CNavLink as={Link} to="/myfounditem" style={{ textDecoration: 'none', color: 'inherit' }}>
             <span className="nav-icon">
               <span className="nav-icon-bullet"></span>
             </span>{' '}
-            <Link to="/myfounditem" style={{ textDecoration: 'none', color: 'inherit' }}>My Found Item</Link>
-          </CNavItem>
+            My Found Item
+            {/* <Link to="/myfounditem" style={{ textDecoration: 'none', color: 'inherit' }}>My Found Item</Link> */}
+          </CNavLink>
         </CNavGroup>
 
-        <CNavItem href="#">
+        <CNavLink href="#">
           <CIcon customClassName="nav-icon" icon={cilBell} /> Notification{' '}
           <CBadge color="primary ms-auto">NEW</CBadge>
-        </CNavItem>
+        </CNavLink>
         
-        <CNavItem href="https://coreui.io">
+        <CNavLink href="https://coreui.io">
           <CIcon customClassName="nav-icon" icon={cilAddressBook} /> Post
-        </CNavItem>
-        <CNavItem href="https://coreui.io/pro/">
+        </CNavLink>
+        <CNavLink href="https://coreui.io/pro/">
           <CIcon customClassName="nav-icon" icon={cilZoom} /> Help
-        </CNavItem>
+        </CNavLink>
       </CSidebarNav>
     </CSidebar>
   )
