@@ -6,6 +6,8 @@ import authjwt from './middleware/auth.js';
 import foundItemsRouter from './router/foundItemsRouter.js';
 import lostItemsRouter from './router/lostItemsRouter.js';
 import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 const app = express();
@@ -18,7 +20,7 @@ app.use(authjwt)
 
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://paminduvirunjith2002:TDKkuvGEThAv7YeZ@cluster0.u9fbdzw.mongodb.net/").then
+mongoose.connect(process.env.MONGO_URL).then
 (() => {
     console.log("Connected to the Database");
 }).catch((err) => {
