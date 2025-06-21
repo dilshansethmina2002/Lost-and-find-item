@@ -14,9 +14,14 @@ function AddLostItem() {
     const [name,setName] = useState("")
     const [description,setDescription] = useState("")
     const [picture,setPicture] = useState([])
+    const [loading, setLoading] = useState(false);
 
     async function submit(e){
-        e.preventDefault(); // Prevent the default form submission behavior
+        e.preventDefault();
+        if (loading) return; // Prevent the default form submission behavior
+
+
+        setLoading(true); // Set loading state to true
 
         if(name.length <= 0){
             toast.error("Please enter Item Name")
@@ -53,11 +58,12 @@ function AddLostItem() {
                 image: imageUrls
             };
 
-            axios.post('http://localhost:3000/api/lost/', lostItem)
+            axios.post(import.meta.env.VITE_API_URL + '/api/lost/', lostItem)
             .then(() => {
+                setOpened(false);
                 console.log('Lost item submitted successfully');
                 toast.success("Lost item submitted successfully")
-                setOpened(false); // Close the popup after submission
+                 // Close the popup after submission
             })
             .catch((error) => {
                 console.log('Error submitting lost item:', error);
@@ -67,6 +73,9 @@ function AddLostItem() {
         }catch(error) {
             console.log('Error submitting lost item:', error);
             toast.error("Error submitting lost item")
+        }
+        finally {
+            setLoading(false); // Always reset loading
         }
     }
 

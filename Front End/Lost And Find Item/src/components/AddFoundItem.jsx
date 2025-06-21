@@ -15,9 +15,12 @@ function AddFoundItem() {
     const [name,setName] = useState("")
     const [description,setDescription] = useState("")
     const [picture,setPicture] = useState([])
+    const [loading, setLoading] = useState(false);
 
     async function submit(e){
         e.preventDefault(); // Prevent the default form submission behavior
+        if (loading) return; // Prevent the default form submission behavior
+        setLoading(true); // Set loading state to true
 
         if(name.length <= 0){
             toast.error("Please enter Item Name")
@@ -54,11 +57,12 @@ function AddFoundItem() {
                 image: imageUrls
             };
 
-            axios.post('http://localhost:3000/api/found/', lostItem)
+            axios.post(import.meta.env.VITE_API_URL + '/api/found/', lostItem)
             .then(() => {
+                setOpened(false);
                 console.log('founded item submitted successfully');
                 toast.success("founded item submitted successfully")
-                setOpened(false); // Close the popup after submission
+                 // Close the popup after submission
             })
             .catch((error) => {
                 console.log('Error submitting founded item:', error);
@@ -68,6 +72,9 @@ function AddFoundItem() {
         }catch(error) {
             console.log('Error submitting founded item:', error);
             toast.error("Error submitting founded item")
+        }
+        finally {
+            setLoading(false); // Reset loading state after submission
         }
     }
 

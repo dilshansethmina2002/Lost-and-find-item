@@ -15,7 +15,7 @@ function ResentItems() {
 
     useEffect(() => {
         // Fetch recent items from the server
-        axios.get('http://localhost:3000/api/lost/')
+        axios.get(import.meta.env.VITE_API_URL + '/api/lost/')
             .then(response => {
                 setRecentItems(response.data); 
                 setState("success")

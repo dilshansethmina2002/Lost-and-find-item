@@ -1,7 +1,7 @@
 .card-item {
     margin: 40px !important;
     width: 90% !important;
-    height: 80vh !important;
+    height: 60vh !important;
     padding: 10px;
     background: rgba(255, 255, 255, 0.18) !important;
     backdrop-filter: blur(16px) saturate(180%) !important;

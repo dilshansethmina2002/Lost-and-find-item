@@ -14,7 +14,7 @@ const center = {
 
 function LocationPicker({ onLocationSelect }) {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyDklytDYnuIoUd6riEIqA9HXGxLFyn9USA' // Replace with your API key
+    googleMapsApiKey: 'AIzaSyDklytDYnuIoUd6riEIqA9HXGxLFyn9USA'
   });
   const [marker, setMarker] = useState(center);
 
