@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Toaster } from 'react-hot-toast';
 import './App.css';
 import {Routes,Route} from "react-router-dom";
-import MyFoundItem from './MyFoundItem.jsx';
-import MyLostItem from './MyLostItem.jsx';
-import Dashbord from './Dashbord.jsx';
+import MyFoundItem from './pages/MyFoundItem.jsx';
+import MyLostItem from './pages/MyLostItem.jsx';  
+import Dashbord from './pages/Dashbord.jsx';
 import { Link } from "react-router-dom";
 
 
