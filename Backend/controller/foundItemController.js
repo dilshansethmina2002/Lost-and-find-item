@@ -9,7 +9,7 @@ export async function createFoundItems(req,res){
             description: foundItemsInfo.description,
             location: foundItemsInfo.location,
             image: foundItemsInfo.image,
-            phoneNumber: lostItemsInfo.phoneNumner,
+            phoneNumber: foundItemsInfo.phoneNumber,
             date: foundItemsInfo.date || Date.now()
         });
 

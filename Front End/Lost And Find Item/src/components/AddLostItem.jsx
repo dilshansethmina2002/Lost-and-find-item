@@ -12,32 +12,45 @@ function AddLostItem() {
     const [opnedPopup, setOpened] = useState(false); // State to control the popup visibility
     const [location, setLocation] = useState(null); // State to store the selected location
     const [name,setName] = useState("")
-    const [phone, setPhone] = useState("") // State to store the phone number
     const [description,setDescription] = useState("")
+    const [phone, setPhone] = useState("") // State to store the phone number
     const [picture,setPicture] = useState([])
     const [loading, setLoading] = useState(false);
 
     async function submit(e){
         e.preventDefault();
+
+        setLoading(true);
+
         if (loading) return; // Prevent the default form submission behavior
 
 
-        setLoading(true); // Set loading state to true
+         // Set loading state to true
 
         if(name.length <= 0){
             toast.error("Please enter Item Name")
+            setLoading(false); // Reset loading state after submission
             return;
         }
         if(description.length <= 0){
             toast.error("Please enter Item Description")
+            setLoading(false); // Reset loading state after submission
+            return;
+        }
+        if(phone.length < 10 || phone.charAt(0) != '0' || phone.length > 10){
+            toast.error("Please enter a valid Phone Number")
+            setLoading(false); // Reset loading state after submission
             return;
         }
         if(location === null){
             toast.error("Please select Item Location")
+            setLoading(false); // Reset loading state after submission
             return;
         }
+
         if(picture.length <= 0){
             toast.error("Please select at least one Image")
+            setLoading(false); // Reset loading state after submission
             return;
         }
 
@@ -56,7 +69,8 @@ function AddLostItem() {
                 name: name,
                 description: description,
                 location: location,
-                image: imageUrls
+                image: imageUrls,
+                phoneNumber: phone.toString()
             };
 
             axios.post(import.meta.env.VITE_API_URL + '/api/lost/', lostItem)
@@ -140,7 +154,7 @@ function AddLostItem() {
                                 }}/>
                             </label>
 
-                            <button type="submit" className='submit-button'>Submit</button>
+                            <button type="submit" className='submit-button' disabled={loading}>{loading ? "Submitting..." : "Submit"}</button>
                             <button type="button" onClick={()=>setOpened(false)} className='cancle-button' >Cancel</button>
                         </form>
                     </div>

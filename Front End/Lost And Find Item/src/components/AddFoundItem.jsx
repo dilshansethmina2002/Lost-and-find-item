@@ -20,23 +20,34 @@ function AddFoundItem() {
 
     async function submit(e){
         e.preventDefault(); // Prevent the default form submission behavior
-        if (loading) return; // Prevent the default form submission behavior
+
         setLoading(true); // Set loading state to true
+
+        if (loading) return; // Prevent the default form submission behavior
 
         if(name.length <= 0){
             toast.error("Please enter Item Name")
+            setLoading(false); // Reset loading state after submission
             return;
         }
         if(description.length <= 0){
             toast.error("Please enter Item Description")
+            setLoading(false); // Reset loading state after submission
+            return;
+        }
+        if(phone.length < 10 || phone.charAt(0) != '0' || phone.length > 10){
+            toast.error("Please enter a valid Phone Number")
+            setLoading(false); // Reset loading state after submission
             return;
         }
         if(location === null){
             toast.error("Please select Item Location")
+            setLoading(false); // Reset loading state after submission
             return;
         }
         if(picture.length <= 0){
             toast.error("Please select at least one Image")
+            setLoading(false); // Reset loading state after submission
             return;
         }
 
@@ -55,7 +66,8 @@ function AddFoundItem() {
                 name: name,
                 description: description,
                 location: location,
-                image: imageUrls
+                image: imageUrls,
+                phoneNumber: phone.toString(),
             };
 
             axios.post(import.meta.env.VITE_API_URL + '/api/found/', lostItem)
@@ -113,6 +125,7 @@ function AddFoundItem() {
                                     onChange={(e) => {
                                         // You may want to add a phone state: 
                                         setPhone(e.target.value)
+                                        console.log(e.target.value)
                                     }}
                                 />
                             </label>
@@ -143,7 +156,7 @@ function AddFoundItem() {
                             </label>
 
 
-                            <button type="submit" className='submit-button'>Submit</button>
+                            <button type="submit" className='submit-button' disabled={loading}>{loading ? "Submitting..." : "Submit"}</button>
                             <button type="button" onClick={()=>setOpened(false)} className='cancel-button'>Cancel</button>
                         </form>
                     </div>

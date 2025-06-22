@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import './ItemCard.css';
 import React from 'react';
 import { IoMdClose } from 'react-icons/io';
+import toast from 'react-hot-toast';
 
 
 function ResentItemCard(item) {
@@ -12,7 +13,7 @@ function ResentItemCard(item) {
 
   const itemName = lostItem.name; // Example item name
   const itemDescription = lostItem.description; // Example description
-  const ItemPhone = lostItem.phone; // Example phone number
+  const ItemPhone = lostItem.phoneNumber; // Example phone number
   const itemLocation = lostItem.location; // Example location
   const itemDate = lostItem.date ? new Date(lostItem.date).toLocaleDateString() : "";
   const itemTime = lostItem.date ? new Date(lostItem.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ""; // Example date
