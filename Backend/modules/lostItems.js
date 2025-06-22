@@ -23,6 +23,10 @@ const lostSchema = new mongoose.Schema ({
     [
         {type:String}
     ],
+    phoneNumber:{
+        type:String,
+        required:true
+    },
     date:{
         type: Date,
         default: Date.now

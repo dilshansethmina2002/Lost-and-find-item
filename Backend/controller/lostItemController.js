@@ -10,6 +10,7 @@ export async function createLostItems(req,res){
         description: lostItemsInfo.description,
         location: lostItemsInfo.location,
         image: lostItemsInfo.image,
+        phoneNumber: lostItemsInfo.phoneNumner,
         date: lostItemsInfo.date || Date.now()
     });
 
