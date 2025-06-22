@@ -12,6 +12,7 @@ function AddLostItem() {
     const [opnedPopup, setOpened] = useState(false); // State to control the popup visibility
     const [location, setLocation] = useState(null); // State to store the selected location
     const [name,setName] = useState("")
+    const [phone, setPhone] = useState("") // State to store the phone number
     const [description,setDescription] = useState("")
     const [picture,setPicture] = useState([])
     const [loading, setLoading] = useState(false);
@@ -102,6 +103,20 @@ function AddLostItem() {
                                 <textarea name="description" onChange={(e) => {
                                     setDescription(e.target.value)
                                     }}/>
+                            </label>
+                            <br />
+                            <label>
+                                Phone Number:
+                                <input
+                                    type="number"
+                                    name="phone"
+                                    pattern="[0-9]{10,15}"
+                                    placeholder="Enter your phone number"
+                                    onChange={(e) => {
+                                        // You may want to add a phone state: 
+                                        setPhone(e.target.value)
+                                    }}
+                                />
                             </label>
                             <br />
                             {/* Google map picker */}

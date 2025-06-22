@@ -14,6 +14,7 @@ function AddFoundItem() {
     const [location, setLocation] = useState(null); // State to store the selected location
     const [name,setName] = useState("")
     const [description,setDescription] = useState("")
+    const [phone, setPhone] = useState("") // State to store the phone number
     const [picture,setPicture] = useState([])
     const [loading, setLoading] = useState(false);
 
@@ -102,6 +103,22 @@ function AddFoundItem() {
                                     }}/>
                             </label>
                             <br />
+                            <label>
+                                Phone Number:
+                                <input
+                                    type="number"
+                                    name="phone"
+                                    pattern="[0-9]{10,15}"
+                                    placeholder="Enter your phone number"
+                                    onChange={(e) => {
+                                        // You may want to add a phone state: 
+                                        setPhone(e.target.value)
+                                    }}
+                                />
+                            </label>
+                            <br />
+
+
                             <form>
                                 
                                 {/* Google map picker */}

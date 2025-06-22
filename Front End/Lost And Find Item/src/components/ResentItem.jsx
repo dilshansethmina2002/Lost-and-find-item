@@ -30,7 +30,7 @@ function ResentItems() {
     return (
         <>
             <div className="resentItemsContainer"> 
-                <h1 className='text-center resentHeader'>Recent Items</h1>
+                <h1 className='text-center resent-header'>Recent Items</h1>
 
                     <Container>
                         <Row>

@@ -12,6 +12,7 @@ function ResentItemCard(item) {
 
   const itemName = lostItem.name; // Example item name
   const itemDescription = lostItem.description; // Example description
+  const ItemPhone = lostItem.phone; // Example phone number
   const itemLocation = lostItem.location; // Example location
   const itemDate = lostItem.date ? new Date(lostItem.date).toLocaleDateString() : "";
   const itemTime = lostItem.date ? new Date(lostItem.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : ""; // Example date
@@ -27,14 +28,20 @@ function ResentItemCard(item) {
         <Card.Img variant="" src={itemImage[0]}/>
       </div>
         <Card.Body className='card-body'>
-          <Card.Title>{itemName}</Card.Title>
-          <Card.Text>
+          <Card.Title className='card-title'>{itemName}</Card.Title>
+          <Card.Text className='card-text'>
             {itemDescription}
           </Card.Text>
-          <Card.Text>
+          
+          <Card.Text className='card-text'>
+            Contact Me:{ItemPhone}
+          </Card.Text>
+
+          <Card.Text className='card-text'>
             <small className="text-muted">Date: {itemDate}</small> <br />
             <small className="text-muted">Time: {itemTime}</small>
           </Card.Text>
+          
           <Button
             variant="primary"
             onClick={() => {
