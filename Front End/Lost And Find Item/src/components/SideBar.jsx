@@ -31,7 +31,7 @@ function SideBar() {
   const handleSignOut = () => {
     localStorage.removeItem("token");
     console.log("Signed out");
-    navigate("/login");
+    navigate("/");
   };
 
   return (

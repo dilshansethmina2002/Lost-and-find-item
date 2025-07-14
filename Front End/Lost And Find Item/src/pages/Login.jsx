@@ -21,7 +21,7 @@ export default function Login() {
         }).then((response) => {
             toast.success("Login successful!");
             localStorage.setItem("token", response.data.token);
-            navigate("/");
+            navigate("/dashbord");
         }).catch((error) => {
             console.error("Login failed:", error);
             toast.error(error.response.data.message || "Login failed. Please try again.");

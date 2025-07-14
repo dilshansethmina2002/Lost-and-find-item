@@ -22,11 +22,11 @@ function App() {
           {/* <Link to="/about">About</Link> */}
         </nav>
         <Routes>
-          <Route path="/" element={<Dashbord />} />
+          <Route path="/" element={<Login />} />
           <Route path="/dashbord" element={<Dashbord />} />
           <Route path="/mylostitem" element={<MyLostItem />} />
           <Route path="/myfounditem" element={<MyFoundItem />} />
-          <Route path="/login" element= {<Login />} />
+          {/* <Route path="/login" element= {<Login />} /> */}
           <Route path="/register" element={<Register />} />
         </Routes>
       </div>

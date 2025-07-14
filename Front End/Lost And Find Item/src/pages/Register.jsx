@@ -26,7 +26,7 @@ export default function Register() {
             password
         }).then((response) => {
             toast.success("Registration successful!");
-            navigate("/Login");
+            navigate("/");
         }).catch((error) => {
             console.error("Registration failed:", error);
             toast.error(error.response?.data?.message || "Registration failed. Please try again.");
@@ -98,7 +98,7 @@ export default function Register() {
                             Already have an account?
                             &nbsp;
                             <span>
-                                <Link to={"/Login"} className='cursor-pointer text-lg' style={{color:"yellow", textDecoration: "none"}}>Login</Link>
+                                <Link to={"/"} className='cursor-pointer text-lg' style={{color:"yellow", textDecoration: "none"}}>Login</Link>
                             </span>
                         </p>
 
