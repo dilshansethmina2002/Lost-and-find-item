@@ -4,27 +4,11 @@ import jwd from "jsonwebtoken";
 
 // This function saves a new user to the database
 export function saveUser(req, res) {
-    if (req.body.role == "admin") {
-        if (req.user == null) {
-            return res.status(403).json({
-                message: "Please login as an admin to create a new admin user"
-            });
-            return;
-        }
-        if (req.user.role != "admin") {
-            return res.status(403).json({
-                message: "You are not authorized to create a new admin user"
-            });
-            return;
-        }
-    }
+    
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
     const user =new User({
         email: req.body.email,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
         password: hashedPassword,
-        role: req.body.role || "user", // Default role is 'user'
         phoneNumber: req.body.phoneNumber || "Not given", // Default phoneNumber to "Not given"
         isDisable: req.body.isDisable || false, // Default isDisable to false
         isEmailVerified: req.body.isEmailVerified || false // Default isEmailVerified to false
@@ -63,9 +47,6 @@ export function loginUser(req, res){
                 // Generate a JWT token
                 const userData ={
                     email: user.email,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    role: user.role,
                     phoneNumber: user.phoneNumber,
                     isDisable: user.isDisable,
                     isEmailVerified: user.isEmailVerified
